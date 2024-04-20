@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test post by paiman</title>
+</head>
+<body>
+
+<form action="/post/create/" method="POST">
+    {% csrf_token %}
+    {{ context }}
+    <input type="submit" value="Save">
+</form>
+
+</body>
+</html>

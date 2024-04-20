@@ -1,9 +1,12 @@
 from django.db import models
 
+
 class post(models.Model):
     title= models.CharField(max_length=10)
     text= models.TextField(max_length=500, blank=True)
     is_enabled= models.BooleanField(default=True)
+    email = models.EmailField(null=True)
+    image = models.ImageField(upload_to="static/images",null=True)
 
 
     objects = models.manager

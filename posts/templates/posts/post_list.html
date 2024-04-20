@@ -1,4 +1,20 @@
-<h1> created by paiman </h1>
-{% for p in key %}
-            <li> <a href="/posts/{{p.id}}/">{{p.id}}-{{p.title}}</a></li>
-        {% endfor %}
+<!-- post_list.html -->
+<ul>
+  {% for p in key %}
+    <li>
+      <a href="/posts/{{ p.id }}/">{{ p.id }} -- {{ p.title }}</a>
+      <ul>
+        <li>{{ p.text }}</li>
+        <li>{{ p.email }}</li>
+        <li>{{p.image}}</li>
+        <ul>
+          {% for c in p.comment_set.all %}
+            <li>{{ c.start_time }}</li>
+            <li>{{ c.text }}</li>
+            <li>{{ c.title }}</li>
+          {% endfor %}
+        </ul>
+      </ul>
+    </li>
+  {% endfor %}
+</ul>

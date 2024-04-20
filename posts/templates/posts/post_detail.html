@@ -2,3 +2,6 @@
 {{key2.title}}
 <li> {{key2.text}}</li>
 <a href="/posts/"> go back</a>
+{% for i in key2.comment_set.all%}
+<li>{{i.text}}</li>
+{%endfor%}
