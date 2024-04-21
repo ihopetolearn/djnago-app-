@@ -15,17 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from posts.views import index, home, post_list,post_detail,post_create,test_create
+from django.urls import path,include
+from posts.views import test, home, post_list,post_detail,post_create,test_create,index,test2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index),
+    path('test/', test,name = 'seriaizer'),
     path('home/', home),
     path('posts/', post_list),  # Update the URL pattern for post list view
     path('posts/<int:pk>/',post_detail),  # Update the URL pattern for post detail view
     path('post/',post_create),
     path('post/create/',test_create),
+    path('api-auth/', include('rest_framework.urls')),
+    path('index/',index, name= 'serializer2'),
+    path('test2/',test2, name='one serializer')
 
 
 ]
